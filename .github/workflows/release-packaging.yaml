@@ -10,7 +10,7 @@ jobs:
         name: Release Packaging
         runs-on: windows-latest
         env:
-            PROJECT_NAME_UNDERSCORE: camera-roll-formater
+            PROJECT_NAME: camera-roll-formater
         steps:
             - uses: actions/checkout@v2
             - uses: actions-rs/toolchain@v1
@@ -25,5 +25,5 @@ jobs:
             - name: "Upload Artifact"
               uses: actions/upload-artifact@v2
               with:
-                  name: ${{ env.PROJECT_NAME_UNDERSCORE }}
-                  path: target/release/${{ env.PROJECT_NAME_UNDERSCORE }}
+                  name: ${{ env.PROJECT_NAME }}
+                  path: target/release/${{ env.PROJECT_NAME }}.exe
