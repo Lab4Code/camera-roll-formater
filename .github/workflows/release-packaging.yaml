@@ -8,9 +8,9 @@ name: Release Packaging
 jobs:
     release:
         name: Release Packaging
+        runs-on: windows-latest
         env:
-            PROJECT_NAME_UNDERSCORE: rust_ci_github_actions_workflow
-        runs-on: ubuntu-latest
+            PROJECT_NAME_UNDERSCORE: camera-roll-formater
         steps:
             - uses: actions/checkout@v2
             - uses: actions-rs/toolchain@v1
