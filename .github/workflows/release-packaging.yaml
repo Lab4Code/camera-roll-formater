@@ -20,6 +20,8 @@ jobs:
                   override: true
             - name: Release Build
               run: cargo build --release
+            - name: "LS"
+              run: ls target/release
             - name: "Upload Artifact"
               uses: actions/upload-artifact@v2
               with:
