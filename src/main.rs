@@ -73,11 +73,16 @@ pub fn get_folder_name(file: &DirEntry) -> Vec<String> {
     let modified = metadata.as_ref().unwrap().modified().unwrap();
     let dtc = DateTime::<Utc>::from(created);
     let dtm = DateTime::<Utc>::from(modified);
-    let mut year = dtc.year();
-    let mut month = dtc.month();
+    let mut year = dtc.year().to_string();
+    let mut month = dtc.month().to_string();
+
     if dtc > dtm {
-        year = dtm.year();
-        month = dtm.month();
+        year = dtm.year().to_string();
+        month = dtm.month().to_string();
+    }
+
+    if month.to_string().len() == 1 {
+        month = format!("0{}", month);
     }
     let base_folder = String::from(BASE_FOLDER_NAME);
     return vec![
